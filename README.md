@@ -168,3 +168,29 @@ http://10.242.136.101:8080/api/verifyOtpTest?txCode=OB10907300000001&authCode=64
     </soap:Body>
 </soap:Envelope>
 ```
+
+# sendotp
+# up
+``` xml
+ <?xml version="1.0" encoding="UTF-8" standalone="yes"?><SecurityProvider xmlns="http://insp.chinatrust.com.tw" xmlns:ns2="http://insp.chinatrust.com.tw/ws/CryptoService"><Header><TxCode>OB19070300000001</TxCode><Function>OneTimeSMSOTP</Function></Header><Body><BizID>MPB</BizID><KeyID>SMSOTPKey</KeyID><SessionID>sessionId</SessionID><Method>genOTP</Method><TransID>OTP0001</TransID><PhoneNO>0932219769</PhoneNO><ChannelType>MPB</ChannelType><SMSText></SMSText><SMSTemplateID>OTPSMS_61</SMSTemplateID><MessageType>NBSMSSTOTP</MessageType></Body></SecurityProvider>
+ ```
+ 
+# down
+``` xml
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SecurityProviderResponse xmlns="http://insp.chinatrust.com.tw">
+    <Header>
+        <SystemCode>0</SystemCode>
+        <TxCode>OB19070300000001</TxCode>
+        <Function>OneTimeSMSOTP</Function>
+    </Header>
+    <Body>
+        <ReturnCode>0</ReturnCode>
+        <ErrorCode>HSMCE00</ErrorCode>
+        <Detail>genOTP ok.</Detail>
+        <SecData>MemoryTokenStore:gmyF1q8Rvn</SecData>
+        <Sac>SISA</Sac>
+    </Body>
+</SecurityProviderResponse>
+```
+
