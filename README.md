@@ -155,17 +155,13 @@ http://10.242.136.101:8080/api/verifyOtpTest?txCode=OB10907300000001&authCode=64
             <SecurityProviderResponse xmlns="http://insp.chinatrust.com.tw">
                 <Header>
                     <SystemCode>0</SystemCode>
-                    <TxCode>OB20190709000001</TxCode>
+                    <TxCode>testTrnCode</TxCode>
                     <Function>RSADecryptData</Function>
                 </Header>
                 <Body>
-                    <ReturnCode>0</ReturnCode>
-                    <ErrorCode>SECPS0000</ErrorCode>
-                    <Detail>SUIPSrvRSAUnwrapData OK.</Detail>
-                    <PlainText>
-                        <Type>HEX</Type>
-                        <Value>51304D334D545978516B5134526B45354F5455315245517A4F5446464F5467344F546B314F544D77525455334D6B45785254453252555244524552474E546842526A64424E5449304E5555794E6B49304F45497A52513D3D</Value>
-                    </PlainText>
+                    <ReturnCode>12</ReturnCode>
+                    <ErrorCode>SECPS4006</ErrorCode>
+                    <Detail>RSAOperation.decrypt CTCB.mpb.mpbobrsakey2048.SIGN.SERVER Exception: Too much data passed to this cipher for current key length and padding. Maximum data size is: 256</Detail>
                 </Body>
             </SecurityProviderResponse>
         </invokeResponse>
