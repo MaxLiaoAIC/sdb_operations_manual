@@ -119,3 +119,56 @@ CC7161BD8FA9955DD391E988995930E572A1E16EDCDDF58AF7A5245E26B48B3E
 ```
 # verify OTP
 http://10.242.136.101:8080/api/verifyOtpTest?txCode=OB10907300000001&authCode=6451106&secData=MemoryTokenStore:oRv7ta29Zy
+
+# RSA 上
+``` xml 
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+   <SOAP-ENV:Header />
+   <SOAP-ENV:Body>
+      <ns3:invoke xmlns:ns3="http://insp.chinatrust.com.tw/ws/CryptoService" xmlns:ns2="http://insp.chinatrust.com.tw">
+         <ns2:SecurityProvider>
+            <ns2:Header>
+               <ns2:TxCode>testTrnCode</ns2:TxCode>
+               <ns2:Function>RSADecryptData</ns2:Function>
+            </ns2:Header>
+            <ns2:Body>
+               <ns2:BizID>mpb</ns2:BizID>
+               <ns2:KeyID>mpbobrsakey2048</ns2:KeyID>
+               <ns2:PlainType>HEX</ns2:PlainType>
+               <ns2:WrapData>
+                  <ns2:Type>HEX</ns2:Type>
+                  <ns2:Value>88d10876c84a4ea7b30075c01676cef308671939d06b32eb69ba214fa7da4e9d47a266c387404512bddba5f955aaaf988c3b4ce8f053d8cc1bd05f088b0a202260a636618bca4a9b3d90973376e3b2b0e9238b3a5cab1a0d8a2452db792e96ad155a974264f83950ee3ebc7a98aa3d0406b44beaca743f0bcce1fc71f671a431121740dcf8dc89ccc105b9aca36483117e75fde5390f9acb3901494fa6c190b60d6de6877e004824ddd8bb2e386b5cf2590db2810478556f10fea4c46b75bcefa00c3c195b60713135ccef23d75180dd25621183bf3dfbcffd4e0515b0180010f91933efe3deec21245d32b84911ade851ef6ea6af18b727161a7693444bfb97</ns2:Value>
+               </ns2:WrapData>
+            </ns2:Body>
+         </ns2:SecurityProvider>
+      </ns3:invoke>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+
+# 下
+``` xml
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <soap:Body>
+        <invokeResponse xmlns="http://insp.chinatrust.com.tw/ws/CryptoService">
+            <SecurityProviderResponse xmlns="http://insp.chinatrust.com.tw">
+                <Header>
+                    <SystemCode>0</SystemCode>
+                    <TxCode>OB20190709000001</TxCode>
+                    <Function>RSADecryptData</Function>
+                </Header>
+                <Body>
+                    <ReturnCode>0</ReturnCode>
+                    <ErrorCode>SECPS0000</ErrorCode>
+                    <Detail>SUIPSrvRSAUnwrapData OK.</Detail>
+                    <PlainText>
+                        <Type>HEX</Type>
+                        <Value>51304D334D545978516B5134526B45354F5455315245517A4F5446464F5467344F546B314F544D77525455334D6B45785254453252555244524552474E546842526A64424E5449304E5555794E6B49304F45497A52513D3D</Value>
+                    </PlainText>
+                </Body>
+            </SecurityProviderResponse>
+        </invokeResponse>
+    </soap:Body>
+</soap:Envelope>
+```
