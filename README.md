@@ -194,3 +194,137 @@ http://10.242.136.101:8080/api/verifyOtpTest?txCode=OB10907300000001&authCode=64
 </SecurityProviderResponse>
 ```
 
+# 20190712
+# 取得姓用卡EMS錯誤
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<ServiceEnvelope xmlns="http://ns.chinatrust.com.tw/XSD/CTCB/ESB/Message/EMF/ServiceEnvelope">
+   <wstxns1:ServiceHeader xmlns:wstxns1="http://ns.chinatrust.com.tw/XSD/CTCB/ESB/Message/EMF/ServiceHeader">
+      <wstxns1:StandardType />
+      <wstxns1:StandardVersion />
+      <wstxns1:ServiceName>ccMobPayAvlBndListInq</wstxns1:ServiceName>
+      <wstxns1:ServiceVersion>01</wstxns1:ServiceVersion>
+      <wstxns1:SourceID>TWMPB</wstxns1:SourceID>
+      <wstxns1:RqTimestamp>2019-07-09T10:56:15.11+08:00</wstxns1:RqTimestamp>
+   </wstxns1:ServiceHeader>
+   <wstxns2:ServiceBody xmlns:wstxns2="http://ns.chinatrust.com.tw/XSD/CTCB/ESB/Message/EMF/ServiceBody">
+      <wstxns3:ccMobPayAvlBndListInqRq xmlns:wstxns3="http://ns.chinatrust.com.tw/XSD/CTCB/ESB/Message/BSMF/ccMobPayAvlBndListInqRq/01">
+         <wstxns3:REQHDR>
+            <wstxns3:SystemId>JCKZ</wstxns3:SystemId>
+            <wstxns3:TrnProg>JCGU176</wstxns3:TrnProg>
+         </wstxns3:REQHDR>
+         <wstxns3:REQBDY>
+            <wstxns3:Channel>INET</wstxns3:Channel>
+            <wstxns3:UserId>benLTest</wstxns3:UserId>
+            <wstxns3:FunctionCode />
+            <wstxns3:LineCnt>1</wstxns3:LineCnt>
+            <wstxns3:MaxLineCnt>15</wstxns3:MaxLineCnt>
+            <wstxns3:CustNbr>A100049008</wstxns3:CustNbr>
+            <wstxns3:NextKeyCpcck>1234567890</wstxns3:NextKeyCpcck>
+            <wstxns3:NextKeyApfk>123456</wstxns3:NextKeyApfk>
+            <wstxns3:FILLER />
+         </wstxns3:REQBDY>
+      </wstxns3:ccMobPayAvlBndListInqRq>
+   </wstxns2:ServiceBody>
+</ServiceEnvelope>
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<ns0:ServiceEnvelope xmlns:ns0="http://ns.chinatrust.com.tw/XSD/CTCB/ESB/Message/EMF/ServiceEnvelope">
+   <ns1:ServiceHeader xmlns:ns1="http://ns.chinatrust.com.tw/XSD/CTCB/ESB/Message/EMF/ServiceHeader">
+      <ns1:StandardType />
+      <ns1:StandardVersion />
+      <ns1:TrackingID>onQ6cBWYtKLSxkYWaa0YGrF-Aos</ns1:TrackingID>
+      <ns1:ServiceName>ccMobPayAvlBndListInq</ns1:ServiceName>
+      <ns1:ServiceVersion>01</ns1:ServiceVersion>
+      <ns1:SourceID>TWMPB</ns1:SourceID>
+      <ns1:RsTimestamp>2019-07-12T16:56:27.605+08:00</ns1:RsTimestamp>
+      <ns1:StatusCode>1</ns1:StatusCode>
+   </ns1:ServiceHeader>
+   <ns1:ServiceError xmlns:ns1="http://ns.chinatrust.com.tw/XSD/CTCB/ESB/Message/EMF/ServiceError">
+      <ns2:Error xmlns:ns2="http://ns.chinatrust.com.tw/XSD/CTCB/ESB/Message/EMF/Common">
+         <ns2:ErrorType>SYSTEM</ns2:ErrorType>
+         <ns2:ErrorCode>E903</ns2:ErrorCode>
+         <ns2:Timestamp>2019-07-12T16:56:27.602+08:00</ns2:Timestamp>
+         <ns2:ErrorMessage>The requested ESB service is not implemented (Operation=) at this moment. ProcessStack=CoreServices/BusinessServices/CreditCard/ccMobPayAvlBndListInq/Ver01/JMSStarter.process/ServiceImplEntry&gt;CoreServices/BaseProcesses/SubProcesses/ImplDispatcher.process/SvcImplEntry&gt;CoreServices/BusinessServices/CreditCard/ccMobPayAvlBndListInq/Ver01/ServiceImplEntry.process/Interaction&gt;CoreServices/BaseProcesses/Patterns/SingleRqRs/SingleRqRs01.process/RsTransform</ns2:ErrorMessage>
+         <ns2:ErrorContext />
+      </ns2:Error>
+   </ns1:ServiceError>
+</ns0:ServiceEnvelope>
+```
+# 正確測試電文
+88d10876c84a4ea7b30075c01676cef308671939d06b32eb69ba214fa7da4e9d47a266c387404512bddba5f955aaaf988c3b4ce8f053d8cc1bd05f088b0a202260a636618bca4a9b3d90973376e3b2b0e9238b3a5cab1a0d8a2452db792e96ad155a974264f83950ee3ebc7a98aa3d0406b44beaca743f0bcce1fc71f671a431121740dcf8dc89ccc105b9aca36483117e75fde5390f9acb3901494fa6c190b60d6de6877e004824ddd8bb2e386b5cf2590db2810478556f10fea4c46b75bcefa00c3c195b60713135ccef23d75180dd25621183bf3dfbcffd4e0515b0180010f91933efe3deec21245d32b84911ade851ef6ea6af18b727161a7693444bfb97
+
+```xml
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SecurityProvider xmlns="http://insp.chinatrust.com.tw" xmlns:ns2="http://insp.chinatrust.com.tw/ws/CryptoService">
+    <Header>
+        <TxCode>OB20190712175931</TxCode>
+        <Function>OneTimeSMSOTP</Function>
+    </Header>
+    <Body>
+        <BizID>MPB</BizID>
+        <KeyID>SMSOTPKey</KeyID>
+        <SecData>MemoryTokenStore:_tx__6AGkX</SecData>
+        <SessionID></SessionID>
+        <Method>verifyOTP</Method>
+        <TransID>123456789</TransID>
+        <PhoneNO>0912345678</PhoneNO>
+        <AuthCode>3552513</AuthCode>
+        <ChannelType>MPB</ChannelType>
+        <SMSText></SMSText>
+        <SMSTemplateID>OTPSMS_61</SMSTemplateID>
+        <MessageType>NBSMSSTOTP</MessageType>
+    </Body>
+</SecurityProvider>
+```
+# 密碼傳送錯誤
+```xml
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SecurityProviderResponse xmlns="http://insp.chinatrust.com.tw">
+    <Header>
+        <SystemCode>0</SystemCode>
+        <TxCode>OB20190712180200</TxCode>
+        <Function>OneTimeSMSOTP</Function>
+    </Header>
+    <Body>
+        <ReturnCode>20</ReturnCode>
+        <ErrorCode>HSMCE23</ErrorCode>
+        <Detail>[10020]</Detail>
+    </Body>
+</SecurityProviderResponse>
+# 輸入錯誤sacData
+
+```xml
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SecurityProviderResponse xmlns="http://insp.chinatrust.com.tw">
+    <Header>
+        <SystemCode>0</SystemCode>
+        <TxCode>OB20190712180539</TxCode>
+        <Function>OneTimeSMSOTP</Function>
+    </Header>
+    <Body>
+        <ReturnCode>20</ReturnCode>
+        <ErrorCode>HSMCE01</ErrorCode>
+        <Detail>ChannelType is illegal.</Detail>
+    </Body>
+</SecurityProviderResponse>
+```
+
+# 輸入錯誤電話號碼
+```xml
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SecurityProviderResponse xmlns="http://insp.chinatrust.com.tw">
+    <Header>
+        <SystemCode>0</SystemCode>
+        <TxCode>OB20190712181513</TxCode>
+        <Function>OneTimeSMSOTP</Function>
+    </Header>
+    <Body>
+        <ReturnCode>20</ReturnCode>
+        <ErrorCode>HSMCE29</ErrorCode>
+        <Detail>&lt;resultcode=0002|errormsg=Illegal Argument. - MOBILENO must be 10 digits|MessageId=null&gt;</Detail>
+    </Body>
+</SecurityProviderResponse>
+```
