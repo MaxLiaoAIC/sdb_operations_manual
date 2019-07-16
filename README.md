@@ -328,3 +328,61 @@ http://10.242.136.101:8080/api/verifyOtpTest?txCode=OB10907300000001&authCode=64
     </Body>
 </SecurityProviderResponse>
 ```
+
+# 20190716
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<ns0:ServiceEnvelope xmlns:ns0="http://ns.chinatrust.com.tw/XSD/CTCB/ESB/Message/EMF/ServiceEnvelope">
+    <ns1:ServiceHeader xmlns:ns1="http://ns.chinatrust.com.tw/XSD/CTCB/ESB/Message/EMF/ServiceHeader">
+        <ns1:StandardType/>
+        <ns1:StandardVersion/>
+        <ns1:TrackingID>Y4BZEs05y9/lYEvSOV0YHCrEAos</ns1:TrackingID>
+        <ns1:ServiceName>ccMobPayAvlBndListInq</ns1:ServiceName>
+        <ns1:ServiceVersion>01</ns1:ServiceVersion>
+        <ns1:SourceID>TWMPB</ns1:SourceID>
+        <ns1:RsTimestamp>2019-07-16T10:50:42.067+08:00</ns1:RsTimestamp>
+        <ns1:StatusCode>0</ns1:StatusCode>
+    </ns1:ServiceHeader>
+    <ns1:ServiceBody xmlns:ns0="http://ns.chinatrust.com.tw/XSD/CTCB/ESB/Message/EMF/ServiceEnvelope" xmlns:ns1="http://ns.chinatrust.com.tw/XSD/CTCB/ESB/Message/EMF/ServiceBody">
+        <ns2:ccMobPayAvlBndListInqRs xmlns:ns2="http://ns.chinatrust.com.tw/XSD/CTCB/ESB/Message/BSMF/ccMobPayAvlBndListInqRs/01">
+            <ns2:RESHDR>
+                <ns2:SystemId>JCKZ</ns2:SystemId>
+                <ns2:TrnProg>JCGU176</ns2:TrnProg>
+            </ns2:RESHDR>
+            <ns2:RESBDY>
+                <ns2:BDYREC>
+                    <ns2:MessageType>0001</ns2:MessageType>
+                    <ns2:LineCnt>0002</ns2:LineCnt>
+                    <ns2:MaxLineCnt>15</ns2:MaxLineCnt>
+                    <ns2:CustNbr>A100049008</ns2:CustNbr>
+                    <ns2:NextKeyCpcck>1234567890</ns2:NextKeyCpcck>
+                    <ns2:NextKeyApfk/>
+                    <ns2:ChiName>TEST</ns2:ChiName>
+                    <ns2:Email>TEST@TEST.COM</ns2:Email>
+                    <ns2:MobilePhone>0912345678</ns2:MobilePhone>
+                    <ns2:BirthDay>19370108</ns2:BirthDay>
+                    <ns2:CardNo>5239531003311038</ns2:CardNo>
+                    <ns2:CardExpire>0824</ns2:CardExpire>
+                    <ns2:CustNo>A100049008</ns2:CustNo>
+                    <ns2:CardHolderInd>0</ns2:CardHolderInd>
+                    <ns2:BlockCode/>
+                    <ns2:AfinityCode>8700</ns2:AfinityCode>
+                    <ns2:AfgpBrfName>中華電信聯名卡</ns2:AfgpBrfName>
+                    <ns2:OpenFlag>N</ns2:OpenFlag>
+                    <ns2:CardKind>C</ns2:CardKind>
+                    <ns2:CardType>670</ns2:CardType>
+                    <ns2:CardBrade>M</ns2:CardBrade>
+                    <ns2:CardGrade>E</ns2:CardGrade>
+                    <ns2:CardArt>670870060</ns2:CardArt>
+                    <ns2:CardOpnDte>20190527</ns2:CardOpnDte>
+                    <ns2:CardFstApplFlg>Y</ns2:CardFstApplFlg>
+                    <ns2:CardArmr/>
+                    <ns2:DualCode/>
+                    <ns2:FILLER/>
+                </ns2:BDYREC>
+            </ns2:RESBDY>
+            <ns2:RESTLR/>
+        </ns2:ccMobPayAvlBndListInqRs>
+    </ns1:ServiceBody>
+</ns0:ServiceEnvelope>
+```
