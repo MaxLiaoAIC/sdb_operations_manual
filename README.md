@@ -386,3 +386,5 @@ http://10.242.136.101:8080/api/verifyOtpTest?txCode=OB10907300000001&authCode=64
     </ns1:ServiceBody>
 </ns0:ServiceEnvelope>
 ```
+
+### init info
