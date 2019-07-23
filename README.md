@@ -396,3 +396,60 @@ http://10.242.136.101:8080/api/verifyOtpTest?txCode=OB10907300000001&authCode=64
 			"channelId":"CPC"
 			}
 ```
+
+# 20190723
+### SECP 解密
+##### 上行電文
+```xml
+<SOAP-ENV:Envelope
+    xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Header/>
+    <SOAP-ENV:Body>
+        <ns3:invoke
+            xmlns:ns2="http://insp.chinatrust.com.tw"
+            xmlns:ns3="http://insp.chinatrust.com.tw/ws/CryptoService">
+            <ns2:SecurityProvider>
+                <ns2:Header>
+                    <ns2:TxCode>OB20190723161329</ns2:TxCode>
+                    <ns2:Function>RSADecryptData</ns2:Function>
+                </ns2:Header>
+                <ns2:Body>
+                    <ns2:BizID>mpb</ns2:BizID>
+                    <ns2:KeyID>mpbobrsakey2048</ns2:KeyID>
+                    <ns2:PlainType>HEX</ns2:PlainType>
+                    <ns2:WrapData>
+                        <ns2:Type>HEX</ns2:Type>
+                        <ns2:Value>88d10876c84a4ea7b30075c01676cef308671939d06b32eb69ba214fa7da4e9d47a266c387404512bddba5f955aaaf988c3b4ce8f053d8cc1bd05f088b0a202260a636618bca4a9b3d90973376e3b2b0e9238b3a5cab1a0d8a2452db792e96ad155a974264f83950ee3ebc7a98aa3d0406b44beaca743f0bcce1fc71f671a431121740dcf8dc89ccc105b9aca36483117e75fde5390f9acb3901494fa6c190b60d6de6877e004824ddd8bb2e386b5cf2590db2810478556f10fea4c46b75bcefa00c3c195b60713135ccef23d75180dd25621183bf3dfbcffd4e0515b0180010f91933efe3deec21245d32b84911ade851ef6ea6af18b727161a7693444bfb97</ns2:Value>
+                    </ns2:WrapData>
+                </ns2:Body>
+            </ns2:SecurityProvider>
+        </ns3:invoke>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+##### 下行電文
+```xml
+<soap:Envelope
+    xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <soap:Body>
+        <invokeResponse
+            xmlns="http://insp.chinatrust.com.tw/ws/CryptoService">
+            <SecurityProviderResponse
+                xmlns="http://insp.chinatrust.com.tw">
+                <Header>
+                    <SystemCode>0</SystemCode>
+                    <TxCode>OB20190723160937</TxCode>
+                    <Function>RSADecryptData</Function>
+                </Header>
+                <Body>
+                    <ReturnCode>12</ReturnCode>
+                    <ErrorCode>SECPS4006</ErrorCode>
+                    <Detail>RSAOperation.decrypt CTCB.mpb.mpbobrsakey2048.SIGN.SERVER Exception: Error in transact: CrossModule,#1-NetworkError,#2-NetworkError</Detail>
+                </Body>
+            </SecurityProviderResponse>
+        </invokeResponse>
+    </soap:Body>
+</soap:Envelope>
+```
