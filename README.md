@@ -4,29 +4,42 @@
 ### up
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
-<sev:ServiceEnvelope xmlns:sev="http://ns.chinatrust.com.tw/XSD/CTCB/ESB/Message/EMF/ServiceEnvelope">
-	<ServiceHeader xmlns="http://ns.chinatrust.com.tw/XSD/CTCB/ESB/Message/EMF/ServiceHeader">
-		<ServiceName>ccCardProfAud</ServiceName>
-		<ServiceVersion>01</ServiceVersion>
-		<SourceID>TWMPB</SourceID>
-		<TransactionID>TWMPB201908213013055</TransactionID>
-		<RqTimestamp>2019-08-21T10:44:43.445+08:00</RqTimestamp>
-	</ServiceHeader>
-	<sbo:ServiceBody xmlns:sbo="http://ns.chinatrust.com.tw/XSD/CTCB/ESB/Message/EMF/ServiceBody">
-		<ccCardProfAudRq xmlns="http://ns.chinatrust.com.tw/XSD/CTCB/ESB/Message/BSMF/ccCardProfAudRq/01">
-			<REQHDR>
-				<TrnNum>TWMPB201908213013055</TrnNum>
-				<TrnCode>JCGU839</TrnCode>
-			</REQHDR>
-			<REQBDY>
-				<CustId>A112618880</CustId>
-				<CustBirthday>19800101</CustBirthday>
-				<UserId>NETBANK</UserId>
-				<FunctionCode>1</FunctionCode>
-			</REQBDY>
-		</ccCardProfAudRq>
-	</sbo:ServiceBody>
-</sev:ServiceEnvelope>
+<ns0:ServiceEnvelope xmlns:ns0="http://ns.chinatrust.com.tw/XSD/CTCB/ESB/Message/EMF/ServiceEnvelope">
+   <ns1:ServiceHeader xmlns:ns1="http://ns.chinatrust.com.tw/XSD/CTCB/ESB/Message/EMF/ServiceHeader">
+      <ns1:StandardType>BSMF</ns1:StandardType>
+      <ns1:StandardVersion>01</ns1:StandardVersion>
+      <ns1:ServiceName>ccCardProfAud</ns1:ServiceName>
+      <ns1:ServiceVersion>01</ns1:ServiceVersion>
+      <ns1:SourceID>MPB</ns1:SourceID>
+      <ns1:TransactionID>MPB201909041506487</ns1:TransactionID>
+      <ns1:RqTimestamp>2019-09-04T15:07:09.11+08:00</ns1:RqTimestamp>
+   </ns1:ServiceHeader>
+   <ns1:ServiceBody xmlns:ns1="http://ns.chinatrust.com.tw/XSD/CTCB/ESB/Message/EMF/ServiceBody">
+      <ns2:ccCardProfAudRq xmlns:ns2="http://ns.chinatrust.com.tw/XSD/CTCB/ESB/Message/BSMF/ccCardProfAudRq/01">
+         <ns2:REQHDR>
+            <ns2:TrnNum>MPB201909041506487</ns2:TrnNum>
+            <ns2:TrnCode>JCGU839</ns2:TrnCode>
+         </ns2:REQHDR>
+         <ns2:REQBDY>
+            <ns2:ExpDt />
+            <ns2:CardNo />
+            <ns2:CustId>B101063165</ns2:CustId>
+            <ns2:MobilePhoneNo />
+            <ns2:TelAreaCode />
+            <ns2:TrnDate />
+            <ns2:TrnTime />
+            <ns2:TelNo />
+            <ns2:Addr />
+            <ns2:CVV2>XXXXX</ns2:CVV2>
+            <ns2:CustBirthday>19900102</ns2:CustBirthday>
+            <ns2:FunctionCode>5</ns2:FunctionCode>
+            <ns2:AddrCity />
+            <ns2:UserId>NETBANK</ns2:UserId>
+            <ns2:CustName />
+         </ns2:REQBDY>
+      </ns2:ccCardProfAudRq>
+   </ns1:ServiceBody>
+</ns0:ServiceEnvelope>
 ```
 
 ### down
