@@ -106,27 +106,43 @@
 ### up 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<sev:ServiceEnvelope xmlns:sev="http://ns.chinatrust.com.tw/XSD/CTCB/ESB/Message/EMF/ServiceEnvelope">
-                <ns0:ServiceHeader xmlns:ns0="http://ns.chinatrust.com.tw/XSD/CTCB/ESB/Message/EMF/ServiceHeader">
-                <ns0:ServiceName>ebShrtenUrlAdd</ns0:ServiceName>
-                <ns0:ServiceVersion>01</ns0:ServiceVersion>
-                <ns0:SourceID>EBMWEB</ns0:SourceID>
-                <ns0:TransactionID>WB20190823002628718</ns0:TransactionID>
-                <ns0:RqTimestamp>2019-08-23T10:05:07.045+08:00</ns0:RqTimestamp>
-        </ns0:ServiceHeader>
-        <sbo:ServiceBody xmlns:sbo="http://ns.chinatrust.com.tw/XSD/CTCB/ESB/Message/EMF/ServiceBody">
-                <ns0:ebShrtenUrlAddRq xmlns:ns0="http://ns.chinatrust.com.tw/XSD/CTCB/ESB/Message/BSMF/ebShrtenUrlAddRq/01">
-                        <ns0:REQHDR>
-                                <ns0:TrnNum>WB20190823002628718</ns0:TrnNum>
-                                <ns0:TrnCode>eb244028</ns0:TrnCode>
-                        </ns0:REQHDR>
-                        <ns0:REQBDY>
-                                <ns0:DueDt>2019/08/24 10:05:06</ns0:DueDt>
-                                <ns0:LongURL>https://ebtest.ctbcbank.com:7777/twrbo/zh_tw/online-branch/digital_account_ib/digital_account_ib0.html?param1=20190823100506554&amp;amp;param2=052277&amp;amp;token=iCv0sMZZpkgFIy8NpkPOP_jKeyE&amp;amp;enterView=0</ns0:LongURL>
-                        </ns0:REQBDY>
-                </ns0:ebShrtenUrlAddRq>
-        </sbo:ServiceBody>
-</sev:ServiceEnvelope>
+<ns0:ServiceEnvelope xmlns:ns0="http://ns.chinatrust.com.tw/XSD/CTCB/ESB/Message/EMF/ServiceEnvelope">
+   <ns1:ServiceHeader xmlns:ns1="http://ns.chinatrust.com.tw/XSD/CTCB/ESB/Message/EMF/ServiceHeader">
+      <ns1:StandardType>BSMF</ns1:StandardType>
+      <ns1:StandardVersion>01</ns1:StandardVersion>
+      <ns1:ServiceName>ebShrtenUrlAdd</ns1:ServiceName>
+      <ns1:ServiceVersion>01</ns1:ServiceVersion>
+      <ns1:SourceID>MPB</ns1:SourceID>
+      <ns1:TransactionID>MPB201909041813153</ns1:TransactionID>
+      <ns1:RqTimestamp>2019-09-04T18:26:53.11+08:00</ns1:RqTimestamp>
+   </ns1:ServiceHeader>
+   <ns1:ServiceBody xmlns:ns1="http://ns.chinatrust.com.tw/XSD/CTCB/ESB/Message/EMF/ServiceBody">
+      <ns2:ebShrtenUrlAddRq xmlns:ns2="http://ns.chinatrust.com.tw/XSD/CTCB/ESB/Message/BSMF/ebShrtenUrlAddRq/01">
+         <ns2:REQHDR>
+            <ns2:TrnNum>INEB201909041813153</ns2:TrnNum>
+            <ns2:TrnCode />
+         </ns2:REQHDR>
+         <ns2:REQBDY>
+            <ns2:SendMode />
+            <ns2:URLNo />
+            <ns2:ClientID>NUMS</ns2:ClientID>
+            <ns2:LongURL>http://ebtest.ctbcbank.com:7777/twrbo/zh_tw/loan/hloan/hloan/Uploadfile.html</ns2:LongURL>
+            <ns2:Protocol>https://</ns2:Protocol>
+            <ns2:TelMobilContact />
+            <ns2:CustName />
+            <ns2:Copy />
+            <ns2:CustShortenerId />
+            <ns2:Action />
+            <ns2:CustID />
+            <ns2:DueDt>2019/09/26 15:26:42</ns2:DueDt>
+            <ns2:CustBirth />
+            <ns2:AppropDeadLine />
+            <ns2:AuthType />
+            <ns2:DataSource />
+         </ns2:REQBDY>
+      </ns2:ebShrtenUrlAddRq>
+   </ns1:ServiceBody>
+</ns0:ServiceEnvelope>
 ```
 
 ### down
